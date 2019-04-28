@@ -1,4 +1,4 @@
-# CPP
+# BookMyShow
 Details about the project:
 1. The application is created in CPP.
 2. It uses MySQL server.
