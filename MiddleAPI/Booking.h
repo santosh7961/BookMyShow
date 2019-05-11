@@ -1,5 +1,4 @@
 #pragma once
-#include "Interfaces.h"
 
 #ifdef _EXPORTING
 #define CLASS_DECLSPEC    _declspec(dllexport)
