@@ -3,10 +3,10 @@
 #include <Windows.h>
 #include <string>
 
-#include "../MiddleAPI/Interfaces.h"
-#include "../MiddleAPI/User.h"
-#include "../MiddleAPI/Movie.h"
-#include "../MiddleAPI/Ticket.h"
+#include "../Common/Interfaces.h"
+#include "../Common/User.h"
+#include "../Common/Movie.h"
+#include "../Common/Ticket.h"
 #include "C:\Program Files\MySQL\MySQL Server 8.0\include\mysql.h"
 
 using namespace std;
