@@ -6,8 +6,8 @@
 #include <iomanip>
 #include <limits>
 #include <map>
-
-#include "MiddleAPI/Interfaces.h"
+#include<Windows.h>
+#include "Common/Interfaces.h"
 #include "MiddleAPI/User.h"
 #include "MiddleAPI/Movie.h"
 #include "MiddleAPI/Theater.h"
@@ -63,7 +63,7 @@ void ViewBookings(long userId)
 	cout << "\n\n************************************************************************\n\n";
 	cout << "Here is your all the tickets booking details. \n" << endl;
 
-	vector<ITicketDetails*> ticketDetails = Ticket::GetTicketDetails(userId);
+	vector<ITicketDetails*> ticketDetails = TicketMiddle::GetTicketDetails(userId);
 	if (ticketDetails.size() == 0)
 		cout << "You haven't booked any ticket yet. Please book and enjoy the movie!!!\n";
 
@@ -126,7 +126,7 @@ void BookTicket(long userId, int showId, string movieName, int pricePerSeat)
 /*Method to fetch the movie details of a given userId in the particular city*/
 void FetchMovieDetails(long userId, string city)
 {
-	vector<IMovieDetails*> movieDetails = MovieDetails::GetMovieDetails(city);
+	vector<IMovieDetails*> movieDetails = MovieMiddle::GetMovieDetails(city);
 	cout << "\nHere is the list of movies in your city with all the details!!!!\n";
 	map<int, string> showIds;
 	cout << "\n***********************************************************************************************\n";
@@ -297,7 +297,7 @@ void ExistingUser()
 	cout << "Enter your password: ";
 	string password; cin >> password;
 
-	user = User::LogIn(mobileNo, password);
+	user = UserMiddle::LogIn(mobileNo, password);
 	if (user == NULL)
 	{
 		cout << "Either mobile number or password is incorrect.\n";
@@ -347,7 +347,7 @@ void NewUserRegistration()
 		
 	if (submitRegistration == 1)
 	{
-		bool isRegistered = User::RegiseterNewUser(mobileNo, password, name, emailId, gender, cityName);
+		bool isRegistered = UserMiddle::RegiseterNewUser(mobileNo, password, name, emailId, gender, cityName);
 		if (isRegistered)
 		{
 			cout << "You have successfully registered.";
